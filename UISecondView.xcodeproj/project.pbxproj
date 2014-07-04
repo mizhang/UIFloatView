@@ -22,6 +22,7 @@
 		1F47B0011966E5400052563C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47AFE51966E5400052563C /* CoreData.framework */; };
 		1F47B0091966E5400052563C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F47B0071966E5400052563C /* InfoPlist.strings */; };
 		1F47B00B1966E5400052563C /* UISecondViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47B00A1966E5400052563C /* UISecondViewTests.m */; };
+		1F47B0151966E5700052563C /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F47B0141966E5700052563C /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1F47B0061966E5400052563C /* UISecondViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UISecondViewTests-Info.plist"; sourceTree = "<group>"; };
 		1F47B0081966E5400052563C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F47B00A1966E5400052563C /* UISecondViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UISecondViewTests.m; sourceTree = "<group>"; };
+		1F47B0141966E5700052563C /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				1F47AFF61966E5400052563C /* Images.xcassets */,
 				1F47AFF31966E5400052563C /* UISecondView.xcdatamodeld */,
 				1F47AFE81966E5400052563C /* Supporting Files */,
+				1F47B0141966E5700052563C /* Storyboard.storyboard */,
 			);
 			path = UISecondView;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			files = (
 				1F47AFEC1966E5400052563C /* InfoPlist.strings in Resources */,
 				1F47AFF71966E5400052563C /* Images.xcassets in Resources */,
+				1F47B0151966E5700052563C /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
