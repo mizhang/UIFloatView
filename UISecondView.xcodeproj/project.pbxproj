@@ -23,6 +23,9 @@
 		1F47B0091966E5400052563C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F47B0071966E5400052563C /* InfoPlist.strings */; };
 		1F47B00B1966E5400052563C /* UISecondViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47B00A1966E5400052563C /* UISecondViewTests.m */; };
 		1F47B0151966E5700052563C /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F47B0141966E5700052563C /* Storyboard.storyboard */; };
+		1F47B0181966F04C0052563C /* baseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F47B0171966F04C0052563C /* baseViewController.m */; };
+		1F47B01D19670D200052563C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47B01C19670D200052563C /* CoreImage.framework */; };
+		1F7AA71A1967A6AF00E2A4A5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7AA7191967A6AF00E2A4A5 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,11 @@
 		1F47B0081966E5400052563C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F47B00A1966E5400052563C /* UISecondViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UISecondViewTests.m; sourceTree = "<group>"; };
 		1F47B0141966E5700052563C /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		1F47B0161966F04C0052563C /* baseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseViewController.h; sourceTree = "<group>"; };
+		1F47B0171966F04C0052563C /* baseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseViewController.m; sourceTree = "<group>"; };
+		1F47B01C19670D200052563C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		1F7AA7181967A6AF00E2A4A5 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		1F7AA7191967A6AF00E2A4A5 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F47B01D19670D200052563C /* CoreImage.framework in Frameworks */,
 				1F47AFE21966E5400052563C /* CoreGraphics.framework in Frameworks */,
 				1F47AFE61966E5400052563C /* CoreData.framework in Frameworks */,
 				1F47AFE41966E5400052563C /* UIKit.framework in Frameworks */,
@@ -105,6 +114,7 @@
 		1F47AFDE1966E5400052563C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F47B01C19670D200052563C /* CoreImage.framework */,
 				1F47AFDF1966E5400052563C /* Foundation.framework */,
 				1F47AFE11966E5400052563C /* CoreGraphics.framework */,
 				1F47AFE31966E5400052563C /* UIKit.framework */,
@@ -117,12 +127,16 @@
 		1F47AFE71966E5400052563C /* UISecondView */ = {
 			isa = PBXGroup;
 			children = (
+				1F7AA7181967A6AF00E2A4A5 /* SecondViewController.h */,
+				1F7AA7191967A6AF00E2A4A5 /* SecondViewController.m */,
+				1F47B0141966E5700052563C /* Storyboard.storyboard */,
+				1F47B0161966F04C0052563C /* baseViewController.h */,
+				1F47B0171966F04C0052563C /* baseViewController.m */,
 				1F47AFF01966E5400052563C /* SRAppDelegate.h */,
 				1F47AFF11966E5400052563C /* SRAppDelegate.m */,
 				1F47AFF61966E5400052563C /* Images.xcassets */,
 				1F47AFF31966E5400052563C /* UISecondView.xcdatamodeld */,
 				1F47AFE81966E5400052563C /* Supporting Files */,
-				1F47B0141966E5700052563C /* Storyboard.storyboard */,
 			);
 			path = UISecondView;
 			sourceTree = "<group>";
@@ -253,7 +267,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7AA71A1967A6AF00E2A4A5 /* SecondViewController.m in Sources */,
 				1F47AFF51966E5400052563C /* UISecondView.xcdatamodeld in Sources */,
+				1F47B0181966F04C0052563C /* baseViewController.m in Sources */,
 				1F47AFEE1966E5400052563C /* main.m in Sources */,
 				1F47AFF21966E5400052563C /* SRAppDelegate.m in Sources */,
 			);
@@ -377,6 +393,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UISecondView/UISecondView-Prefix.pch";
 				INFOPLIST_FILE = "UISecondView/UISecondView-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -390,6 +407,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UISecondView/UISecondView-Prefix.pch";
 				INFOPLIST_FILE = "UISecondView/UISecondView-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -454,6 +472,7 @@
 				1F47B0101966E5400052563C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F47B0111966E5400052563C /* Build configuration list for PBXNativeTarget "UISecondViewTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +481,7 @@
 				1F47B0131966E5400052563C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
