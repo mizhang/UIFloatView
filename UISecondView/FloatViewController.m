@@ -10,9 +10,8 @@
 
 @interface FloatViewController ()
 
-- (IBAction)swipeToDismiss:(id)sender;
 
-@property (weak) id<floatViewDismissDelegate> delegate;
+- (IBAction)swiped:(id)sender;
 
 @end
 
@@ -22,7 +21,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _delegate = [self parentViewController];
     }
     return self;
 }
@@ -39,8 +37,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)swipeToDismiss:(id)sender{
-    [self.view removeFromSuperview];
+- (IBAction)swiped:(id)sender {
+    [_delegate swipeToDismiss:sender];
 }
 
 

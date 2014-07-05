@@ -12,8 +12,9 @@
 
 @interface baseViewController ()
 
--(IBAction)clickedTouched:(id)sender;
+@property (nonatomic, strong) UIImageView * blurViewImage;
 
+-(IBAction)clickedTouched:(id)sender;
 
 @end
 
@@ -23,7 +24,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+    
     }
     return self;
 }
@@ -31,6 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    FloatViewController * floatViewController = [[self childViewControllers] firstObject];
+    floatViewController.delegate = self;
+    // Custom initialization
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,10 +62,9 @@
     UIImage *snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    UIImageView * blurView = [[UIImageView alloc] initWithFrame:[self.view bounds]];
-    blurView.image = [self getBlurImageWithUIImage:snapshotImage];
+    _blurViewImage.image = [self getBlurImageWithUIImage:snapshotImage];
     
-    [self.view addSubview:blurView];
+    [self.view addSubview:_blurViewImage];
     
     
 
@@ -100,6 +104,11 @@
     CGImageRef cgImage = [context createCGImage:result fromRect:[inputImage extent]];
     
     return [UIImage imageWithCGImage:cgImage];
+}
+
+- (IBAction) swipeToDismiss:(id)sender {
+    [[[[self childViewControllers] firstObject] view] removeFromSuperview];
+    [_blurViewImage removeFromSuperview];
 }
 
 /*

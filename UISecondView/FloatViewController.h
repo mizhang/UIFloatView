@@ -10,10 +10,12 @@
 
 @protocol floatViewDismissDelegate
 
--(void) swipeToDismiss: (id)sender;
+-(IBAction) swipeToDismiss: (id)sender;
 
 @end
 
 @interface FloatViewController : UIViewController
+
+@property (weak) id<floatViewDismissDelegate> delegate;
 
 @end
