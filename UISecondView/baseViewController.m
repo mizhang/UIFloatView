@@ -20,6 +20,14 @@
 
 @implementation baseViewController
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        _blurViewImage = [[UIImageView alloc] initWithFrame: [self.view bounds]];
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,6 +43,7 @@
     
     FloatViewController * floatViewController = [[self childViewControllers] firstObject];
     floatViewController.delegate = self;
+    _blurViewImage = [[UIImageView alloc] initWithFrame:[self.view bounds]];
     // Custom initialization
 }
 
@@ -80,6 +89,7 @@
     floatController.view.frame = CGRectMake( 42, 0, width, height );
     
     [self.view addSubview:floatController.view];
+    
     
     
     
