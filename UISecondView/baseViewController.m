@@ -8,9 +8,12 @@
 
 #import "baseViewController.h"
 
+
+
 @interface baseViewController ()
 
 -(IBAction)clickedTouched:(id)sender;
+
 
 @end
 
@@ -28,7 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,19 +40,66 @@
 }
 
 - (void) try {
+    
+    //[self addChildViewController:[[FloatViewController alloc] init]];
+    /**  iOS8 effect
     UIVisualEffect * blurEffect = [ UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView * visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     
     visualEffectView.frame = self.view.bounds;
     
     [self.view addSubview: visualEffectView];
+     */
+    
+    
+    UIGraphicsBeginImageContext(self.view.bounds.size);
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    UIImage *snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImageView * blurView = [[UIImageView alloc] initWithFrame:[self.view bounds]];
+    blurView.image = [self getBlurImageWithUIImage:snapshotImage];
+    
+    [self.view addSubview:blurView];
+    
+    
+
 }
 
 - (IBAction) clickedTouched:(id)sender {
     
+    [self try];
+    
+    FloatViewController * floatController = [[self childViewControllers] firstObject];
+    CGFloat  width = floatController.view.frame.size.width;
+    CGFloat  height = floatController.view.frame.size.height;
+    floatController.view.frame = CGRectMake( 42, 0, width, height );
+    
+    [self.view addSubview:floatController.view];
+    
+    
+    
    // floatViewController * floatController = [floatViewController new];
   //  self.delegate = floatController;
   //  [self presentViewController:floatController animated:YES completion:nil];
+}
+
+- (UIImage *) getBlurImageWithUIImage: (UIImage*) originalImage {
+    CIContext *context = [CIContext contextWithOptions:nil];
+    
+    CIImage *inputImage = [[CIImage alloc] initWithImage:originalImage];
+    
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    
+    [filter setValue:inputImage forKey:kCIInputImageKey];
+    
+    [filter setValue:[NSNumber numberWithFloat:3.0f] forKey:@"inputRadius"];
+    
+    CIImage *result = [filter valueForKey:kCIOutputImageKey];
+    
+    CGImageRef cgImage = [context createCGImage:result fromRect:[inputImage extent]];
+    
+    return [UIImage imageWithCGImage:cgImage];
 }
 
 /*

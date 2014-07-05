@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gg2-Aa-JxC">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
     <scenes>
@@ -23,14 +22,22 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeF-Wn-zWm">
-                                <rect key="frame" x="114" y="421" width="86" height="51"/>
+                                <rect key="frame" x="117" y="421" width="86" height="51"/>
                                 <state key="normal" title="Click">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QDG-Uf-AIM" kind="modal" id="FjN-Ng-ERC"/>
+                                    <action selector="clickedTouched:" destination="gg2-Aa-JxC" eventType="touchUpInside" id="9Ld-VD-PGw"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="278" placeholderIntrinsicHeight="234" translatesAutoresizingMaskIntoConstraints="NO" id="nkB-ip-NNP">
+                                <rect key="frame" x="89" y="0.0" width="278" height="234"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                <connections>
+                                    <segue destination="T3Q-su-0a7" kind="embed" id="5JI-ab-kHw"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -40,26 +47,33 @@
             </objects>
             <point key="canvasLocation" x="-8" y="-112"/>
         </scene>
-        <!--Second View Controller-->
-        <scene sceneID="SiQ-3k-eh1">
+        <!--Float View Controller-->
+        <scene sceneID="VSN-UY-eRv">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="QDG-Uf-AIM" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="T3Q-su-0a7" customClass="FloatViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eAt-BP-5Jh"/>
-                        <viewControllerLayoutGuide type="bottom" id="0he-DN-gnV"/>
+                        <viewControllerLayoutGuide type="top" id="RgX-pe-DmI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fgw-FY-3qE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tn6-2y-hUV">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9ep-Om-Xmw">
+                        <rect key="frame" x="0.0" y="0.0" width="278" height="234"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.1693259533" blue="0.13339427779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.27339623936393886" blue="0.22080738997713556" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="NwM-ge-phD" appends="YES" id="dL5-Ws-tbj"/>
+                        </connections>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="200" height="100"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="200" height="100"/>
+                    <toolbarItems/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CWl-qV-hpr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FBr-bV-8Ek" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="NwM-ge-phD">
+                    <connections>
+                        <action selector="swipeToDismiss:" destination="T3Q-su-0a7" id="BvF-Q9-YH2"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="507" y="171"/>
+            <point key="canvasLocation" x="333" y="-200"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

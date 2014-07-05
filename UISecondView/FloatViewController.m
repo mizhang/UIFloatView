@@ -1,24 +1,28 @@
 //
-//  SecondViewController.m
+//  FloatViewController.m
 //  UISecondView
 //
 //  Created by Mi on 7/4/14.
 //  Copyright (c) 2014 Trilogy. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "FloatViewController.h"
 
-@interface SecondViewController ()
+@interface FloatViewController ()
+
+- (IBAction)swipeToDismiss:(id)sender;
+
+@property (weak) id<floatViewDismissDelegate> delegate;
 
 @end
 
-@implementation SecondViewController
+@implementation FloatViewController
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _delegate = [self parentViewController];
     }
     return self;
 }
@@ -34,6 +38,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)swipeToDismiss:(id)sender{
+    [self.view removeFromSuperview];
+}
+
 
 /*
 #pragma mark - Navigation

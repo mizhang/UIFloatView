@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FloatViewController.h"
 
-@interface baseViewController : UIViewController
+@interface baseViewController : UIViewController<floatViewDismissDelegate>
 
 @end
